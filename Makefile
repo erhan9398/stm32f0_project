@@ -25,7 +25,7 @@ OBJCOPY=arm-none-eabi-objcopy
 OBJDUMP=arm-none-eabi-objdump
 SIZE=arm-none-eabi-size
 
-CFLAGS  = -Wall -g -std=c99 -Os  
+CFLAGS  = -Wall -g -std=c99 -O0
 #CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m0 -march=armv6s-m
 CFLAGS += -mlittle-endian -mcpu=cortex-m0  -march=armv6-m -mthumb
 CFLAGS += -ffunction-sections -fdata-sections
@@ -43,6 +43,8 @@ CFLAGS += -I $(STD_PERIPH_LIB)/CMSIS/Include -I $(STD_PERIPH_LIB)/STM32F0xx_StdP
 CFLAGS += -include $(STD_PERIPH_LIB)/stm32f0xx_conf.h
 
 SRCS += Device/startup_stm32f0xx.s # add startup file to build
+SRCS += uart.c delay.c time1.c
+
 
 # need if you want to build with -DUSE_CMSIS 
 #SRCS += stm32f0_discovery.c
