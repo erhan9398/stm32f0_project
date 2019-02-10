@@ -40,7 +40,7 @@
                     "text": "monitor reset halt"
                 },
                 {
-                    "text": "cd /home/erhan/Desktop/STM_GIMBAL_TEST_CODES/stm32f0-projects"
+                    "text": "cd ${workspaceFolder}"
                 },
                 {
                     "text": "file main.elf"
