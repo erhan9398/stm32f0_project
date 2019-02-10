@@ -80,14 +80,15 @@ int main(void)
 		{	i = 0;
             do
             {   
-                pwm[0] = i;
+                pwm[0] = 99-i;
                 pwm[1] = i;
                 pwm[2] = i;
                 GPIO_SetBits(GPIOA, GPIO_Pin_5);
-                Delay_MilliSec(50);
+                Delay_MilliSec(5);
                 GPIO_ResetBits(GPIOA, GPIO_Pin_5);
                 Set_PWM(pwm);
-                Delay_MilliSec(50);
+                Delay_MilliSec(5);
+                Set_Pwms();
                 i++;
             }while(i <= 99 & flag);
 		}

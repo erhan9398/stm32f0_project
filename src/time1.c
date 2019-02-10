@@ -60,6 +60,6 @@ void Init_GpioForPWM()
 void Set_PWM(uint32_t *pwm)
 {
     TIM1->CCR1 = pwm[0];
-    TIM1->CCR2 = pwm[0];
-    TIM1->CCR3 = pwm[0];
+    TIM1->CCR2 = pwm[1];
+    TIM1->CCR3 = pwm[2];
 }
