@@ -8,9 +8,9 @@ void Init_Timer2()
     //enable TIM2 clock
     RCC_APB1PeriphClockCmd(RCC_APB1ENR_TIM2EN, ENABLE);
     
-    TIM_TimeBaseInitStructure.TIM_Prescaler = 0;
+    TIM_TimeBaseInitStructure.TIM_Prescaler = 23;
     TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-    TIM_TimeBaseInitStructure.TIM_Period = 5000;
+    TIM_TimeBaseInitStructure.TIM_Period = 99;
     TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
     TIM_TimeBaseInit(TIM2, &TIM_TimeBaseInitStructure);
     TIM_ClearITPendingBit(TIM2, TIM_IT_Update);

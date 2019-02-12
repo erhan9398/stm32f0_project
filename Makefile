@@ -44,7 +44,7 @@ CFLAGS += -include $(STD_PERIPH_LIB)/stm32f0xx_conf.h
 
 SRCS += Device/startup_stm32f0xx.s # add startup file to build
 #add files to use
-SRCS += uart.c delay.c time1.c gpio.c pwm.c time2.c
+SRCS += uart.c delay.c time1.c gpio.c pwm.c time2.c adc.c
 
 
 # need if you want to build with -DUSE_CMSIS 
