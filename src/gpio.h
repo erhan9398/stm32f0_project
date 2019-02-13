@@ -6,10 +6,13 @@
 #include "stm32f0xx_exti.h"
 #include "stm32f0xx_syscfg.h"
 
-#define USART1_RX       GPIO_Pin_10
-#define USART1_TX       GPIO_Pin_9
+#define USART1_RX       GPIO_Pin_3
+#define USART1_TX       GPIO_Pin_2
 #define LED2_Pin        GPIO_Pin_5
 #define BUTTON1_Pin     GPIO_Pin_13
+#define PWM_A           GPIO_Pin_8
+#define PWM_B           GPIO_Pin_9
+#define PWM_C           GPIO_Pin_10
 #define HBridgeEnA      GPIO_Pin_10
 #define HBridgeEnB      GPIO_Pin_11
 #define HBridgeEnC      GPIO_Pin_12

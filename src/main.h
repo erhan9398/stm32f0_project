@@ -11,6 +11,8 @@
 #include "time1.h"
 #include "time2.h"
 #include "gpio.h"
+#include "adc.h"
+#include <stdio.h>
 
 uint8_t flag = 1;
 

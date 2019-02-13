@@ -27,7 +27,7 @@ void Init_Uart()
 
 }
 
-void SendString_Usart(char *str)
+void SendString_Usart(uint8_t *str)
 {
     while(*str)
     {

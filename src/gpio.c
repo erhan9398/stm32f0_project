@@ -28,6 +28,7 @@ void Init_Gpio()
     /* Set PC10-11-12 as output  for H-bridge enable*/
     GPIO_InitStructure.GPIO_Pin = HBridgeEnA | HBridgeEnB | HBridgeEnC;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(HBridgeEnPort, &GPIO_InitStructure);
@@ -47,7 +48,7 @@ void Init_Gpio()
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOC, &GPIO_InitStructure);
 
-    /* Set PA9-PA10 as USART1_TX-USART1_RX*/
+    /* Set PA2-PA3 as USART1_TX-USART1_RX*/
     GPIO_InitStructure.GPIO_Pin = USART1_TX | USART1_RX;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -61,6 +62,17 @@ void Init_Gpio()
     GPIO_InitStructure.GPIO_PuPd =  GPIO_PuPd_DOWN;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+    /* Set PA8-PA9-PA10 as PWM_OUT*/ 
+    GPIO_InitStructure.GPIO_Pin = PWM_A | PWM_B | PWM_C;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+    GPIO_PinAFConfig(GPIOA, GPIO_PinSource8, GPIO_AF_2);
+    GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_2);
+    GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_2);
+
 
     
     /* Tell system that you will use PC13 for EXTI_Line13 */

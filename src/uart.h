@@ -6,6 +6,6 @@
 #include "stm32f0xx_gpio.h"
 
 void Init_Uart(void);
-void SendString_Usart(char *s);
+void SendString_Usart(uint8_t *s);
 
 #endif

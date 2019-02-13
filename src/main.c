@@ -2,25 +2,25 @@
 
 uint32_t pwm[3] = {0};
 uint32_t i = 0;
-
+uint8_t MyText[16];
+uint8_t *FloatToString(uint16_t nmbr);
 
 int main(void)
 {	
-    uint8_t *str = "hello world";
-    uint16_t *ADC_Res[3] = {0};
+    uint16_t ADC_Res = 0;
     Init_Gpio();
 	Init_Delay();
-    Init_GpioForPWM();
     Init_Timer1();
     Init_PWM();
-    Init_Uart();
+    //TODO: Init uart rx-tx as PA3-PA2
+    //Init_Uart();   
     Init_Adc();
     //Init_Timer2();
     
     while(1)
 	{   
         
-		GPIO_SetBits(GPIOA, MDriverEn);
+		//GPIO_SetBits(GPIOA, MDriverEn);
         if(flag)
 		{	  
             GPIO_SetBits(LED2Port, LED2_Pin);
@@ -49,14 +49,15 @@ int main(void)
             GPIO_ResetBits(LED2Port, LED2_Pin);
             Delay_MilliSec(20);
             GPIO_ResetBits(HBridgeEnPort, HBridgeEnC);
-            Read_AdcResult(ADC_Res);
+            //ADC_Res = Read_AdcResult();
 		}
         
 		else
 		{
             GPIO_ResetBits(HBridgeEnPort, HBridgeEnA | HBridgeEnB | HBridgeEnC);
 		    GPIO_ResetBits(LED2Port, LED2_Pin);
-            SendString_Usart(str);
+            //FloatToString(ADC_Res);
+            //SendString_Usart(MyText);
             //Delay_MilliSec(50);
 		}
         
@@ -82,4 +83,10 @@ void TIM2_IRQHandler()
 
     }
     
+}
+
+uint8_t *FloatToString(uint16_t nmbr)
+{
+    sprintf(MyText, "%d Volt", nmbr);
+    return (MyText);
 }
